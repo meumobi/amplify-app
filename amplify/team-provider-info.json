@@ -10,6 +10,17 @@
       "StackName": "amplify-amplifyapp-dev-173315",
       "StackId": "arn:aws:cloudformation:eu-west-1:778125261255:stack/amplify-amplifyapp-dev-173315/11471c80-cc91-11ec-8e88-0a669c1e17b9",
       "AmplifyAppId": "d2mcgyx40vlzd"
+    },
+    "categories": {
+      "auth": {
+        "undefined": {}
+      },
+      "hosting": {
+        "amplifyhosting": {
+          "appId": "d2mcgyx40vlzd",
+          "type": "manual"
+        }
+      }
     }
   }
 }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Analytics } from 'aws-amplify';
 import { Subscription } from 'rxjs';
 import { APIService, Todo } from 'src/app/API.service';
 
@@ -44,6 +45,14 @@ export class TodoListPage implements OnInit {
       .CreateTodo(todo)
       .then((event) => {
         console.log('item created!');
+        Analytics.record(
+          {
+            name: 'todoCreate',
+            attributes: {
+              name: todo.name
+            }
+          }
+        );
         this.createForm.reset();
       })
       .catch((e) => {
