@@ -1,0 +1,29 @@
+<div class="form-body">
+  <form
+    autocomplete="off"
+    [formGroup]="createForm"
+    (ngSubmit)="onCreate(createForm.value)"
+  >
+    <div>
+      <label>Name: </label>
+      <input type="text" formControlName="name" autocomplete="off" />
+    </div>
+    <div>
+      <label>Description: </label>
+      <input type="text" formControlName="description" autocomplete="off" />
+    </div>
+    <button type="submit">Submit</button>
+  </form>
+</div>
+
+
+<ng-container *ngIf="todos; else loading">
+  <div *ngIf="todos.length > 0; else empty">
+    <ul *ngFor="let todo of todos">
+      <li routerLink="/todos/detail/{{ todo.id }}">{{ todo.name }}</li>
+    </ul>
+  </div>
+</ng-container>
+
+<ng-template #loading>Loading...</ng-template>
+<ng-template #empty>No items found!</ng-template>

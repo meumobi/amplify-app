@@ -1,0 +1,7 @@
+<ng-container *ngIf="todo !== undefined; else loading">
+  <div *ngIf="todo !== null; else empty">
+    <h2>{{ todo.name }}</h2>
+  </div>
+</ng-container>
+<ng-template #loading>Loading...</ng-template>
+<ng-template #empty>Item not found!</ng-template>
