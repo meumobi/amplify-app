@@ -20,7 +20,7 @@ Some next steps:
 ✔ Successfully pulled backend environment dev from the cloud.
 
     Current Environment: dev
-    
+
 ┌───────────┬────────────────┬───────────┬───────────────────┐
 │ Category  │ Resource name  │ Operation │ Provider plugin   │
 ├───────────┼────────────────┼───────────┼───────────────────┤
@@ -48,12 +48,14 @@ GraphQL transformer version: 2
 Import and load the configuration file in your `src/main.ts` file. User session data is automatically collected.
 
 ```ts
-import { Amplify, Analytics } from 'aws-amplify';
-import awsconfig from './aws-exports';
+import { Amplify, Analytics } from "aws-amplify";
+import awsconfig from "./aws-exports";
 
 Amplify.configure(awsconfig);
-Analytics.enable();
+//Analytics.enable();
 ```
+
+OBS: when you call Amplify.configure, you are in fact calling the configure method in every category. So it makes no difference between Amplify.configure({ Analytics: {} }) or Analytics.configure({})
 
 ## Recording an event
 
@@ -67,8 +69,7 @@ To record custom events call the record method:
 
 https://github.com/aws-amplify/amplify-js/issues/9131#issuecomment-961324077
 
-## Sending dat to multiple providers
+## Sending data to multiple providers
 
 I want to send the events data to Pinpoint and Kinesis
 You'll have to call Anlaytics.record twice, one for each provider, and that is expected since input format differs between providers. Check this [example](https://github.com/aws-amplify/amplify-js/issues/5329#issuecomment-620851312).
-

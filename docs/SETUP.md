@@ -18,7 +18,6 @@ If not you don't have Node.js and npm already installed, I recommend the read of
 
 If you don't already have, you'll need to [create an AWS Account](https://portal.aws.amazon.com/billing/signup) in order to follow the steps outlined in this tutorial.
 
-
 ### Amplify cli
 
 ```sh
@@ -93,21 +92,21 @@ https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-profiles.html
 Adding backend environment dev to AWS Amplify app: d2mcgyx40vlzd
 ⠹ Initializing project in the cloud...
 
-CREATE_IN_PROGRESS amplify-amplifyapp-dev-173315 AWS::CloudFormation::Stack Thu May 05 2022 17:33:17 GMT+0100 (Western European Summer Time) User Initiated             
-CREATE_IN_PROGRESS DeploymentBucket              AWS::S3::Bucket            Thu May 05 2022 17:33:21 GMT+0100 (Western European Summer Time)                            
-CREATE_IN_PROGRESS AuthRole                      AWS::IAM::Role             Thu May 05 2022 17:33:21 GMT+0100 (Western European Summer Time)                            
-CREATE_IN_PROGRESS UnauthRole                    AWS::IAM::Role             Thu May 05 2022 17:33:21 GMT+0100 (Western European Summer Time)                            
+CREATE_IN_PROGRESS amplify-amplifyapp-dev-173315 AWS::CloudFormation::Stack Thu May 05 2022 17:33:17 GMT+0100 (Western European Summer Time) User Initiated
+CREATE_IN_PROGRESS DeploymentBucket              AWS::S3::Bucket            Thu May 05 2022 17:33:21 GMT+0100 (Western European Summer Time)
+CREATE_IN_PROGRESS AuthRole                      AWS::IAM::Role             Thu May 05 2022 17:33:21 GMT+0100 (Western European Summer Time)
+CREATE_IN_PROGRESS UnauthRole                    AWS::IAM::Role             Thu May 05 2022 17:33:21 GMT+0100 (Western European Summer Time)
 CREATE_IN_PROGRESS AuthRole                      AWS::IAM::Role             Thu May 05 2022 17:33:22 GMT+0100 (Western European Summer Time) Resource creation Initiated
 CREATE_IN_PROGRESS DeploymentBucket              AWS::S3::Bucket            Thu May 05 2022 17:33:22 GMT+0100 (Western European Summer Time) Resource creation Initiated
 CREATE_IN_PROGRESS UnauthRole                    AWS::IAM::Role             Thu May 05 2022 17:33:22 GMT+0100 (Western European Summer Time) Resource creation Initiated
 ⠹ Initializing project in the cloud...
 
-CREATE_COMPLETE AuthRole   AWS::IAM::Role Thu May 05 2022 17:33:40 GMT+0100 (Western European Summer Time) 
-CREATE_COMPLETE UnauthRole AWS::IAM::Role Thu May 05 2022 17:33:40 GMT+0100 (Western European Summer Time) 
+CREATE_COMPLETE AuthRole   AWS::IAM::Role Thu May 05 2022 17:33:40 GMT+0100 (Western European Summer Time)
+CREATE_COMPLETE UnauthRole AWS::IAM::Role Thu May 05 2022 17:33:40 GMT+0100 (Western European Summer Time)
 ⠹ Initializing project in the cloud...
 
-CREATE_COMPLETE DeploymentBucket              AWS::S3::Bucket            Thu May 05 2022 17:33:43 GMT+0100 (Western European Summer Time) 
-CREATE_COMPLETE amplify-amplifyapp-dev-173315 AWS::CloudFormation::Stack Thu May 05 2022 17:33:46 GMT+0100 (Western European Summer Time) 
+CREATE_COMPLETE DeploymentBucket              AWS::S3::Bucket            Thu May 05 2022 17:33:43 GMT+0100 (Western European Summer Time)
+CREATE_COMPLETE amplify-amplifyapp-dev-173315 AWS::CloudFormation::Stack Thu May 05 2022 17:33:46 GMT+0100 (Western European Summer Time)
 ✔ Successfully created initial AWS cloud resources for deployments.
 ✔ Initialized provider successfully.
 ✅ Initialized your environment successfully.
@@ -144,26 +143,20 @@ The `@aws-amplify/ui-angular` package is a set of Angular components and an Angu
 Add the Amplify Authenticator UI Module to `src/app/app.module.ts`:
 
 ```ts
-import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-import { AmplifyAuthenticatorModule } from '@aws-amplify/ui-angular';
+import { NgModule } from "@angular/core";
+import { BrowserModule } from "@angular/platform-browser";
+import { AmplifyAuthenticatorModule } from "@aws-amplify/ui-angular";
 
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
+import { AppRoutingModule } from "./app-routing.module";
+import { AppComponent } from "./app.component";
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    AmplifyAuthenticatorModule
-  ],
+  declarations: [AppComponent],
+  imports: [BrowserModule, AppRoutingModule, AmplifyAuthenticatorModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
 ```
 
 ## Connect API and database to the app
@@ -193,7 +186,7 @@ Edit your schema at /Users/vdias38/Dvpt/PROJECTS/amplify-app/amplify/backend/api
 ### Creating the API with database
 
 ```sh
-% amplify push 
+% amplify push
 ✔ Successfully pulled backend environment dev from the cloud.
 ⠴ Building resource api/amplifyapp
 
@@ -230,6 +223,12 @@ Once the deployment is complete, the CLI will create a new directory in `src/gra
 
 https://docs.amplify.aws/start/getting-started/data-model/q/integration/angular/#connect-frontend-to-api
 
-[Node.js]: https://nodejs.org/en/
+[node.js]: https://nodejs.org/en/
 [npm]: https://www.npmjs.com/
 [git]: https://git-scm.com/
+
+## Troubleshouting
+
+### Error: No credentials, applicationId or region
+
+Disable Analytics [amplify-js/issues/5918](https://github.com/aws-amplify/amplify-js/issues/5918)

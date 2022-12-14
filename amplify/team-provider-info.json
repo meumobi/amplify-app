@@ -13,7 +13,8 @@
     },
     "categories": {
       "auth": {
-        "undefined": {}
+        "undefined": {},
+        "amplifyapp9bc0d9bb": {}
       },
       "hosting": {
         "amplifyhosting": {
